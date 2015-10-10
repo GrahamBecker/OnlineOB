@@ -5,4 +5,5 @@ The applicatin allows users to create event entries into an online occurance boo
 
 # UML Diagram
 
-![alt tag](https://raw.github.com/GrahamBecker/OnlineOB/UML.jpg)
+![alt text][UML Diagram]
+[UML Diagram]: https://github.com/GrahamBecker/OnlineOB/blob/master/UML.jpg "UML Diagram"
