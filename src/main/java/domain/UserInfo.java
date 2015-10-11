@@ -10,7 +10,7 @@ import java.util.List;
 public class UserInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
+    private Long id;
     private String firstName;
     private String lastName;
     private String dob;
@@ -26,8 +26,8 @@ public class UserInfo implements Serializable {
 
     private UserInfo() {
     }
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
     public String getFirstName() {
         return firstName;
@@ -48,7 +48,7 @@ public class UserInfo implements Serializable {
         return idNumber;
     }
     public UserInfo(Builder builder) {
-        userId = builder.userId;
+        id = builder.id;
         firstName = builder.firstName;
         lastName = builder.lastName;
         dob = builder.dob;
@@ -57,7 +57,7 @@ public class UserInfo implements Serializable {
         idNumber = builder.idNumber;
     }
     public static class Builder {
-        private Long userId;
+        private Long id;
         private String firstName;
         private String lastName;
         private String dob;
@@ -65,7 +65,7 @@ public class UserInfo implements Serializable {
         private String contact;
         private String idNumber;
         public Builder copy(UserInfo value) {
-            this.userId = value.userId;
+            this.id = value.id;
             this.firstName = value.firstName;
             this.lastName = value.lastName;
             this.dob = value.dob;
@@ -94,8 +94,12 @@ public class UserInfo implements Serializable {
             this.contact = value;
             return this;
         }
-        public Builder(Long userId) {
-            this.userId = userId;
+        public Builder idNumber(String value) {
+            this.idNumber = value;
+            return this;
+        }
+        public Builder(Long id) {
+            this.id = id;
         }
         public UserInfo build() {
             return new UserInfo(this);
@@ -106,15 +110,16 @@ public class UserInfo implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserInfo userInfo = (UserInfo) o;
-        return userId.equals(userInfo.userId);
+        return id.equals(userInfo.id);
     }
     @Override
     public int hashCode() {
-        return userId.hashCode();
+        return id.hashCode();
     }
     @Override
     public String toString() {
         return "User{" +
+                "User Id = " + id + "," +
                 "Last Name = " + lastName + "," +
                 "First Name = " + firstName + "," +
                 "Date of Birth = " + dob + "," +

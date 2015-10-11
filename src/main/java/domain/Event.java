@@ -12,21 +12,16 @@ public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long eventId;
-    private Long userId;
-    private Long escalationId;
     private String description;
     private String dateTime;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="eventId")
+    private List<Escalation> escalations;
 
     private Event(){
     }
     public Long getEventId(){
         return eventId;
-    }
-    public Long getUserId(){
-        return userId;
-    }
-    public Long getEscalationId(){
-        return escalationId;
     }
     public String getDescription(){
         return description;
@@ -37,34 +32,19 @@ public class Event implements Serializable {
 
     public Event(Builder builder){
         eventId=builder.eventId;
-        userId=builder.userId;
-        escalationId=builder.escalationId;
         description=builder.description;
         dateTime=builder.dateTime;
     }
 
     public static class Builder{
         private Long eventId;
-        private Long userId;
-        private Long escalationId;
         private String description;
         private String dateTime;
 
         public Builder copy(Event value){
             this.eventId=value.eventId;
-            this.userId=value.userId;
-            this.escalationId=value.escalationId;
             this.description=value.description;
             this.dateTime=value.dateTime;
-            return this;
-        }
-
-        public Builder userId(Long value){
-            this.userId = value;
-            return this;
-        }
-        public Builder escalationId(Long value){
-            this.escalationId = value;
             return this;
         }
         public Builder description(String value){
@@ -98,8 +78,6 @@ public class Event implements Serializable {
     public String toString() {
         return "Event{" +
                 "Event Id = " + eventId + "," +
-                "User Id = " + userId + "," +
-                "Escalation Id = " + escalationId + "," +
                 "Description= " + description + "," +
                 "Date Time = " + dateTime + "," +
                 "}";

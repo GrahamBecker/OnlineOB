@@ -12,7 +12,6 @@ public class KeyRegister implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long keyId;
-    private Long userId;
     private String keyNo;
     private String issuedTo;
     private String dateIssued;
@@ -23,9 +22,6 @@ public class KeyRegister implements Serializable{
     }
     public Long getKeyId(){
         return keyId;
-    }
-    public Long getUserId(){
-        return userId;
     }
     public String getKeyNo(){
         return keyNo;
@@ -44,7 +40,6 @@ public class KeyRegister implements Serializable{
     }
     public KeyRegister(Builder builder){
         keyId=builder.keyId;
-        userId=builder.userId;
         keyNo=builder.keyNo;
         issuedTo=builder.issuedTo;
         dateIssued=builder.dateIssued;
@@ -53,7 +48,6 @@ public class KeyRegister implements Serializable{
     }
     public static class Builder{
         private Long keyId;
-        private Long userId;
         private String keyNo;
         private String issuedTo;
         private String dateIssued;
@@ -62,7 +56,6 @@ public class KeyRegister implements Serializable{
 
         public Builder copy(KeyRegister value){
             this.keyId=value.keyId;
-            this.userId=value.userId;
             this.keyNo=value.keyNo;
             this.issuedTo=value.issuedTo;
             this.dateIssued=value.dateIssued;
@@ -71,12 +64,8 @@ public class KeyRegister implements Serializable{
             return this;
         }
 
-        public Builder userId(Long value){
-            this.userId = value;
-            return this;
-        }
-        public Builder keyNo(Long value){
-            this.keyId = value;
+        public Builder keyNo(String value){
+            this.keyNo = value;
             return this;
         }
         public Builder issuedTo(String value){
@@ -119,7 +108,7 @@ public class KeyRegister implements Serializable{
     @Override
     public String toString() {
         return "Key Register{" +
-                "UserId = " + userId + "," +
+                "Key Id = " + keyId + "," +
                 "Key Number = " + keyNo + "," +
                 "Issued To = " + issuedTo + "," +
                 "Date Issued = " + dateIssued + "," +
