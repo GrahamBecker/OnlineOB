@@ -42,4 +42,9 @@ public class EventServiceImpl implements EventService {
         }
         return allEvents;
     }
+
+    @Override
+    public List<Event> getEvents() {
+        return null;
+    }
 }
