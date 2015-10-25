@@ -2,15 +2,11 @@
 
         import domain.Event;
         import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.boot.autoconfigure.SpringBootApplication;
-        import org.springframework.context.annotation.ComponentScan;
         import org.springframework.web.bind.annotation.RequestMapping;
         import org.springframework.web.bind.annotation.RequestMethod;
         import org.springframework.web.bind.annotation.RestController;
         import services.EventService;
-        import services.LoginService;
 
-        import javax.servlet.annotation.WebServlet;
         import java.util.List;
 
 /**
@@ -31,8 +27,5 @@ public class HomePage {
                 .build();
         return event;
     }
-    @RequestMapping(value = "events", method = RequestMethod.GET)
-    public List<Event> getEvents(){
-        return service.getEvents();
-    }
+
 }

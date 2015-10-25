@@ -44,7 +44,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> getEvents() {
+    public List<Event> getEvents(Long id) {
         return null;
     }
 }
